@@ -6,7 +6,7 @@
 // Motor
 class DeviceDriverSetMotor {
   public:
-    void Init();
+    void DeviceDriverSetMotorInit();
     #if _Test_DeviceDriverSet
     void DeviceDriverSetMotorTest();
     #endif
@@ -25,8 +25,8 @@ class DeviceDriverSetMotor {
 
     // Motor rotation direction flags
     #define SPEED_MAX         255
-    #define DIRECTION_JUST    true
-    #define DIRECTION_BACK    false
+    #define DIRECTION_JUST    true        // Motor forward
+    #define DIRECTION_BACK    false       // Motor backward
     #define DIRECTION_VOID    3
     
     // Other functional flags
