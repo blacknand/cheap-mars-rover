@@ -1,5 +1,6 @@
+#include "DEviceDriverSet0.h"
+
 extern DeviceDriverSetMotor AppMotor;
-extern App AppRover0;
 
 enum RoverControlMotion {
   FORWARD,
@@ -15,6 +16,8 @@ enum RoverControlMotion {
 
 struct App {
   RoverControlMotion MotionControl;
-}
+};
+
+extern App AppRover0;
 
 static void AppFuncSetRoverMotionControl(RoverControlMotion direction, uint8_t speed) {}

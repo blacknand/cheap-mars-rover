@@ -9,9 +9,9 @@ void setup() {
   AppMotor.DeviceDriverSetMotorInit();
   delay(2000);
 
-  for (AppRover.MotionControl = 0; AppRover.MotionControl < 9;
-       AppRover.MotionControl++) {
-          AppFuncSetRoverMotionControl(AppRover.MotionControl, 255);
+  for (AppRover0.MotionControl = 0; AppRover0.MotionControl < 9;
+       AppRover0.MotionControl = AppRover0.MotionControl + 1) {
+          AppFuncSetRoverMotionControl(AppRover0.MotionControl, 255);
           delay(1000);
   }
 }
