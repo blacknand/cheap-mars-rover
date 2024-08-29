@@ -11,6 +11,7 @@ void setup() {
 
   for (AppRover0.MotionControl = 0; AppRover0.MotionControl < 9;
        AppRover0.MotionControl = AppRover0.MotionControl + 1) {
+          Serial.println("moving rover");
           AppFuncSetRoverMotionControl(AppRover0.MotionControl, 255);
           delay(1000);
   }
