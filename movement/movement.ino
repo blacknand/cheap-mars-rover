@@ -1,22 +1,30 @@
 #include <avr/wdt.h>
+#include <Arduino.h>
 #include "DeviceDriverSet0.h"
-#include "AppFuncSet0.cpp"            // not sure if arduino requires importing .cpp files, or if you need to link them?
+#include "AppFuncSet0.cpp"
 
 DeviceDriverSetMotor AppMotor;
 App AppRover0;
 
 void setup() {
+  Serial.begin(9600);                                           // Initialise serial communication
   AppMotor.DeviceDriverSetMotorInit();
-  delay(2000);
-
-  for (AppRover0.MotionControl = 0; AppRover0.MotionControl < 9;
-       AppRover0.MotionControl = AppRover0.MotionControl + 1) {
-          Serial.println("moving rover");
-          AppFuncSetRoverMotionControl(AppRover0.MotionControl, 255);
-          delay(1000);
-  }
 }
 
 void loop() {
-
+  if (Serial.available() > 0) {
+    char c = Serial.read();
+    Serial.println("Recieved char ");
+    Serial.println(c);
+    if (c == 'w')
+      AppFuncSetRoverMotionControl(FORWARD, 255);
+    else if (c == 's')
+      AppFuncSetRoverMotionControl(BACKWARD, 255);
+    else if (c == 'd')
+      AppFuncSetRoverMotionControl(RIGHT, 255);
+    else if (c == 'a')
+      AppFuncSetRoverMotionControl(LEFT, 255);
+    else
+      AppFuncSetRoverMotionControl(STOP, 0);
+  }
 }
