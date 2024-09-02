@@ -1,1 +1,1 @@
-void GetNetworkInfo();
+void GetNetworkInfo(const char* ssid);

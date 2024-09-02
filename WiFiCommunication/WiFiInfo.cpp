@@ -3,10 +3,10 @@
 #include "WiFiInfo.h"
 
 
-void GetNetworkInfo() {
+void GetNetworkInfo(const char* ssid) {
   if (WiFi.status() == WL_CONNECTED) {
     Serial.println("-----------------------------------------------------");
-    Serial.println("[*] WiFi network information for ")
+    Serial.println("[*] WiFi network information for ");
     Serial.println(ssid);
     Serial.println("[+] BSSID: " + WiFi.BSSIDstr());
     Serial.print("[+] Gateway IP: ");

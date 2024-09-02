@@ -15,7 +15,7 @@ void setup() {
   Serial.println("\n");
   
   while (WiFi.status() != WL_CONNECTED) {
-    Serial.println("Connecting to WiFi network ")
+    Serial.println("Connecting to WiFi network ");
     Serial.println(ssid);
     Serial.println("...\n");
     delay(100);
@@ -23,7 +23,7 @@ void setup() {
 
   Serial.println("Connected to WiFi network ");
   Serial.println(ssid);
-  GetNetworkInfo();
+  GetNetworkInfo(ssid);
 }
 
 void loop() {}
