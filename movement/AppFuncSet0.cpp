@@ -1,26 +1,8 @@
-#include "DEviceDriverSet0.h"
+#include "DeviceDriverSet0.h"
+#include "AppFuncSet0.h"
 
-extern DeviceDriverSetMotor AppMotor;
 
-enum RoverControlMotion {
-  FORWARD,
-  BACKWARD,
-  LEFT,
-  RIGHT,
-  LEFT_FORWARD,
-  LEFT_BACKWARD,
-  RIGHT_FORWARD,
-  RIGHT_BACKWARD,
-  STOP
-};
-
-struct App {
-  RoverControlMotion MotionControl;
-};
-
-extern App AppRover0;
-
-static void AppFuncSetRoverMotionControl(RoverControlMotion direction, uint8_t speed) {
+void AppFuncSetRoverMotionControl(RoverControlMotion direction, uint8_t speed) {
   static uint8_t directionRecord = 0;
   uint8_t Kp, UpperLimit;
 

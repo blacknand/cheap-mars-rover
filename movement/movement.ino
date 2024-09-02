@@ -1,15 +1,21 @@
+// <movement.ino> listens for serial input and controls the rover
+
+
 #include <avr/wdt.h>
 #include <Arduino.h>
 #include "DeviceDriverSet0.h"
-#include "AppFuncSet0.cpp"
+#include "AppFuncSet0.h"
+
 
 DeviceDriverSetMotor AppMotor;
 App AppRover0;
 
+
 void setup() {
-  Serial.begin(9600);                                           // Initialise serial communication
+  Serial.begin(9600);
   AppMotor.DeviceDriverSetMotorInit();
 }
+
 
 void loop() {
   if (Serial.available() > 0) {
